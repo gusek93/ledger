@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
-import "antd/dist/antd.css";
-import Root from './pages';
+import Root from './pages/index'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Root />
-    </Router>
+    <Root />
   </React.StrictMode>,
-  
   document.getElementById('root')
 );
+
