@@ -1,18 +1,19 @@
 import React from "react";
 import Header from "./Header";
-import Footer from "./Footer";
+//import Footer from "./Footer";
 import styles from "./Layout.module.scss"
 import LedgerList from "../LedgerList"
-//import Ledger from "../Ledger"
+import AddLedger from "../AddLedger"
 
  function Layout() {
     return (
         <div>
             <Header />
                 <div className={styles.app}>
+
+                    <AddLedger/>
                     <LedgerList/>
                 </div>  
-            <Footer />
         </div>
     )
 }

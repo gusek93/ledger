@@ -1,0 +1,26 @@
+.ledger {
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius:  5px;
+    padding: 5px;
+    background-color: lightgreen;
+    margin-bottom: 5px;
+    margin: 5px;
+    
+
+
+    .classify {
+        margin: 20px;
+    }
+    .date {
+         margin: 20px;
+    }
+    .detail {
+         margin: 20px;
+    }
+    .money {
+         margin: 20px;
+    }
+    
+}
