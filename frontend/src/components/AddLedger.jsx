@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 
-const apiUrl = "http://localhost:8000/record/record/";
+const apiUrl = "http://localhost:8000/api/record/";
 
 function AddLedger() {
     const [ledgerClassify, setLedgerClassify] = useState('');
@@ -10,8 +10,7 @@ function AddLedger() {
     const [ledgerMoney, setLedgerMoney] = useState('');
     
     
-    const addNewLedger = (event) => {
-        event.preventDefault();
+    const addNewLedger = () => {
 
         const itemList = {
             "classify":ledgerClassify,
