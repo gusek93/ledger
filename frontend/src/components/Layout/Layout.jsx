@@ -4,17 +4,43 @@ import Header from "./Header";
 import styles from "./Layout.module.scss"
 import LedgerList from "../LedgerList"
 import AddLedger from "../AddLedger"
+import Navbar from "./Navbar";
+import Users from "./Users";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from 'react-router-dom';
 
  function Layout() {
     return (
-        <div>
-            <Header />
-                <div className={styles.app}>
+        <Router>
+            <div className="Layout">
+                <Navbar />
+                <Switch>
+                    <Route path="/ledger">
+                        <Header />
+                        <div className={styles.app}>
+                            <AddLedger />
+                            <LedgerList />
+                        </div>
+                    </Route>
 
-                    <AddLedger/>
-                    <LedgerList/>
-                </div>  
-        </div>
+                    <Route path="/users">
+                        <Users />
+                    </Route>
+
+                    <Route path="/" exact>
+                        <h1>home page</h1>
+                    </Route>
+                </Switch>
+                
+                    
+               
+
+            </div>
+        </Router>
+        
     )
 }
 

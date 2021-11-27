@@ -4,7 +4,7 @@ import Ledger from "./Ledger";
 
 
 const apiUrl = "http://localhost:8000/api/record";
-const apiDel = "http://localhost:8000/api/delete/"
+//const apiDel = "http://localhost:8000/api/delete/"
 
 function LedgerList() {
     const [ledgerList, setLedgerList] = useState([]);

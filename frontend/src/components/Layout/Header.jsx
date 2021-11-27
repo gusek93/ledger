@@ -10,14 +10,7 @@ function Header() {
                 </div>
 
                 <nav className={styles.navigation}>
-                    <ul>
-                        <li>
-                            user
-                        </li>
-                        <li>
-                            logout
-                        </li>
-                    </ul>
+
                 </nav>
             </div>
         </header>
