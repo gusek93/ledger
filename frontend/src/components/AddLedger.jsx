@@ -21,6 +21,7 @@ function AddLedger() {
         console.log(itemList);
 
         Axios.post(apiUrl, itemList)
+            .then(console.log("list추가에 성공 했습니다."))
 
     }
     

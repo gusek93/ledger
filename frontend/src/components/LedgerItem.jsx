@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Ledger.module.scss";
 
 
-function Ledger({ ledger, removeLedger}) {
+function Ledger({ ledger, removeLedger , changeLedger}) {
     return(
         <div className={style.ledger}>
             <div className={style.classify}>{ledger.classify}</div>
@@ -13,6 +13,9 @@ function Ledger({ ledger, removeLedger}) {
                 <button onClick={() => removeLedger(ledger.id)}>
                     삭제
                 </button>
+            </div>
+            <div>
+                <button onClick={() => changeLedger()}>수정</button>
             </div>
         </div>
         

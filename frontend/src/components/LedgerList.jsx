@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import Ledger from "./Ledger";
+import LedgerItem from "./LedgerItem";
 
 
 const apiUrl = "http://localhost:8000/api/record";
-//const apiDel = "http://localhost:8000/api/delete/"
 
 function LedgerList() {
     const [ledgerList, setLedgerList] = useState([]);
@@ -18,7 +17,6 @@ function LedgerList() {
                 .catch(error => {
 
                 })
-            console.log("mounted");
         },[]);
 
     const removeLedger = (id) => {
@@ -27,14 +25,19 @@ function LedgerList() {
         return window.location.reload();
 
     }
+
+    const changeLedger = () => {
+        console.log('수정 완료');
+    }
     
 
     const renderLedgerList = ledgerList.map(ledger => {
         return (
-            <Ledger
+            <LedgerItem
                 ledger={ledger} 
                 key={ledger.id}
                 removeLedger={removeLedger}
+                changeLedger={changeLedger}
             />
         )
     })
