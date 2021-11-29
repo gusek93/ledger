@@ -26,18 +26,12 @@ function LedgerList() {
 
     }
 
-    const changeLedger = () => {
-        console.log('수정 완료');
-    }
-    
-
     const renderLedgerList = ledgerList.map(ledger => {
         return (
             <LedgerItem
                 ledger={ledger} 
                 key={ledger.id}
                 removeLedger={removeLedger}
-                changeLedger={changeLedger}
             />
         )
     })

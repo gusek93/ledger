@@ -1,6 +1,5 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import UserList from "../UserList";
 import Spinner from "./Spinner";
 import { useParams } from "react-router-dom";
 
@@ -11,7 +10,6 @@ function User() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const { pk } = useParams();
-    console.log(pk);
 
     useEffect(() => {
         Axios.get(`${apiUrl}/${pk}`)
@@ -20,9 +18,9 @@ function User() {
                 setUser(response.data);
                 setLoading(false);
             });
-    }, [])
+    },[])
 
-    const userDetial = loading ? <Spinner /> :
+    const userDetail = loading ? <Spinner /> :
         <div>
             <div>{user.username}</div>
             <div>{user.email}</div>
@@ -31,7 +29,7 @@ function User() {
     return (
         <>
             <h1>User 정보</h1>
-            {userDetial}
+            {userDetail}
         </>
     )
 }

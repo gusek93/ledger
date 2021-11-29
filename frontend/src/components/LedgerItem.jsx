@@ -1,8 +1,9 @@
 import React from "react";
 import style from "./Ledger.module.scss";
+import { Link } from "react-router-dom";
+import ChangeLedger from "./ChangeLedger";
 
-
-function Ledger({ ledger, removeLedger , changeLedger}) {
+function LedgerItem({ ledger, removeLedger , changeLedger}) {
     return(
         <div className={style.ledger}>
             <div className={style.classify}>{ledger.classify}</div>
@@ -10,12 +11,16 @@ function Ledger({ ledger, removeLedger , changeLedger}) {
             <div className={style.detail}>{ledger.detail}</div>
             <div className={style.money}>{ledger.money}</div>
             <div>
-                <button onClick={() => removeLedger(ledger.id)}>
-                    삭제
-                </button>
+                <Link className="btn btn-outline-secondary m-1" to={`/ledger/${ledger.id}`}>수정</Link>
+                
             </div>
             <div>
-                <button onClick={() => changeLedger()}>수정</button>
+                <button 
+                    type="button" 
+                    className="btn btn-outline-secondary m-1" 
+                    onClick={() => removeLedger(ledger.id)}>
+                    삭제
+                </button>
             </div>
         </div>
         
@@ -23,4 +28,4 @@ function Ledger({ ledger, removeLedger , changeLedger}) {
     )
 }
 
-export default Ledger;
+export default LedgerItem;

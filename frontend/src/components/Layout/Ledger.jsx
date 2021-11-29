@@ -5,7 +5,7 @@ import Header from "./Header";
 import styles from "./Layout.module.scss"
 
 
-const Ledger = () => {
+function Ledger() {
     return (
         <>
             <Header />
