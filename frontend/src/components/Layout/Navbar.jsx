@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 function Navbar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light ">
+            <div className="container-fluid ">
                 <NavLink className="navbar-brand" to="/">Home</NavLink>
                 <button 
                     className="navbar-toggler" 
@@ -16,7 +16,7 @@ function Navbar() {
                     aria-label="Toggle navigation">
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav ">
                         <li className="nav-item">
                             <NavLink 
                             className="nav-link " 
@@ -35,6 +35,24 @@ function Navbar() {
                                 activeClassName="active"
                             >
                             Users
+                            </NavLink>
+                        </li>
+                        <li className="nav-item float-right">
+                            <NavLink
+                                className="nav-link"
+                                to="/signin"
+                                activeClassName="active"
+                            >
+                                Sign In
+                            </NavLink>
+                        </li>
+                        <li className="nav-item float-right">
+                            <NavLink
+                                className="nav-link"
+                                to="/signup"
+                                activeClassName="active"
+                            >
+                                Sign Up
                             </NavLink>
                         </li>
 

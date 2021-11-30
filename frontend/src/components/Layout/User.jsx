@@ -18,7 +18,7 @@ function User() {
                 setUser(response.data);
                 setLoading(false);
             });
-    },[])
+    }, [pk])
 
     const userDetail = loading ? <Spinner /> :
         <div>
