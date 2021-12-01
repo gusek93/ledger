@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import LedgerItem from "./LedgerItem";
+import { useAppContext } from "../utils/store";
 
 
 const apiUrl = "http://localhost:8000/api/record";
 
 function LedgerList() {
     const [ledgerList, setLedgerList] = useState([]);
+    const {store: {jwtToken}} = useAppContext();
+
         useEffect(() => {
             Axios.get(apiUrl)
                 .then((response) => {

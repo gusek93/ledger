@@ -44,7 +44,6 @@ function SignUp() {
                         type="text" 
                         className="form-control" 
                         id="userid" 
-                        name="userid" 
                         placeholder="아이디"
                         onChange={e => setUserId(e.target.value)}
                         value={userId}
