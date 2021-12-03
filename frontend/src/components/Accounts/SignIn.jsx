@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "./SignIn.module.scss";
 import Axios from "axios";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router-dom";
+//import { useHistory } from "react-route";
 import { useAppContext, setToken } from "../../utils/store";
 
 
@@ -10,8 +11,15 @@ const apiUrl = 'http://localhost:8000/accounts/token/'
 function SignIn() {
     const {dispatch} = useAppContext();
     const history = useHistory();
+    const location = useLocation();
     const [userId, setUserId] = useState('');
     const [userPassword, setUserPassword] = useState('');
+
+    const {from: loginRedirectUrl } = location.state || {
+        from: {pathname:'/'}
+    };
+
+    console.log('location:',location);
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -31,7 +39,7 @@ function SignIn() {
                 
 
                 // setJwtToken(jwtToken);
-                //history.push('/');
+                history.push(loginRedirectUrl);
             })
             .catch(error => {
                 console.error(error);

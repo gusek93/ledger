@@ -28,10 +28,8 @@ function Layout() {
                         <Route exact path={"/"} component={Home}/>
                         <Route exact path={"/signin"} component={SignIn}/>
                         <Route exact path={"/signup"} component={SignUp}/>
-
-                        <Route exact path={"/ledger"} component={Ledger}/>
-
-                        <Route exact path={"/ledger/:id"} component={ChangeLedger}/>
+                        <LoginRequiredRoute exact path={"/ledger"} component={Ledger}/>
+                        <LoginRequiredRoute exact path={"/ledger/:id"} component={ChangeLedger}/>
                         <LoginRequiredRoute exact path={"/users"} component={Users}/>
                         <Route exact path={"/users/:pk"} component={User}/>
                     </Switch>

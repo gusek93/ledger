@@ -1,15 +1,29 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { useAppContext } from "./store";
 
 
-export default function LoginRequiredRoute({component, ...kwargs}) {
+export default function LoginRequiredRoute({component:Component, ...kwargs}) {
     const {
         store: { isAuthenticated }
     } = useAppContext();
     
     console.log("isAuthenticated : ", isAuthenticated);
 
-    return <Route {...kwargs} component={component}/>
+    if (isAuthenticated) {
+
+    }
+    else {
+        
+    }
+
+    return <Route {...kwargs} render={props => {
+        if (isAuthenticated) {
+            return <Component {...props}/>
+        }  
+        else {
+            return <Redirect to={{pathname: "/signin", state: {from: props.location}}}/>
+        }
+    }}/>
     
 }

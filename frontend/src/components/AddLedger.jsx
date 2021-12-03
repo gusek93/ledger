@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import { useAppContext} from "../utils/store";
 
 const apiUrl = "http://localhost:8000/api/record/";
 
@@ -8,6 +9,8 @@ function AddLedger() {
     const [ledgerDate, setLedgerDate] = useState('');
     const [ledgerDetail, setLedgerDetail] = useState('');
     const [ledgerMoney, setLedgerMoney] = useState('');
+    const { store: { jwtToken }, dispatch } = useAppContext();
+    const headers = { Authorization: `JWT ${jwtToken}` }
     
     
     const addNewLedger = () => {
@@ -20,7 +23,7 @@ function AddLedger() {
         }
         console.log(itemList);
 
-        Axios.post(apiUrl, itemList)
+        Axios.post(apiUrl, itemList, { headers })
             .then(console.log("list추가에 성공 했습니다."))
 
     }

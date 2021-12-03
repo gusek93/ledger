@@ -8,10 +8,12 @@ const apiUrl = "http://localhost:8000/api/record";
 
 function LedgerList() {
     const [ledgerList, setLedgerList] = useState([]);
-    const {store: {jwtToken}} = useAppContext();
+    const {store:{jwtToken}, dispatch} = useAppContext();
+    const headers = { Authorization: `JWT ${jwtToken}` }
 
         useEffect(() => {
-            Axios.get(apiUrl)
+            
+            Axios.get(apiUrl,{headers})
                 .then((response) => {
                     const { data } = response;
                     setLedgerList(data);
@@ -24,7 +26,7 @@ function LedgerList() {
 
     const removeLedger = (id) => {
 
-        Axios.delete(`${apiUrl}/${id}/`)
+        Axios.delete(`${apiUrl}/${id}/`, { headers})
         return window.location.reload();
 
     }

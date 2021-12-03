@@ -3,6 +3,7 @@ import Axios from "axios";
 import { useParams } from "react-router-dom";
 import style from "./Ledger.module.scss";
 import Spinner from "./Layout/Spinner";
+import { useAppContext } from "../utils/store";
 
 const apiUrl = 'http://localhost:8000/api/record'
 
@@ -16,6 +17,8 @@ function ChangeLedger() {
     const [changeDate, setChangeDate] = useState('');
     const [changeDetail, setChangeDetail] = useState('');
     const [changeMoney, setChangeMoney] = useState('');
+    const { store: { jwtToken }, dispatch } = useAppContext();
+    const headers = { Authorization: `JWT ${jwtToken}` }
 
 
     const addChangeLedger = () => {
@@ -27,14 +30,15 @@ function ChangeLedger() {
             "money": changeMoney,
         }
         console.log(itemList);
+        console.log(headers);
 
-        Axios.put(`${apiUrl}/${id}/`, itemList)
+        Axios.put(`${apiUrl}/${id}/`, itemList, { headers })
             .then(console.log("수정에 성공 했습니다."))
 
     }
 
     useEffect(() => {
-        Axios.get(`${apiUrl}/${id}`)
+        Axios.get(`${apiUrl}/${id}`,{headers})
             .then((response) => {
                 const { data } = response;
                 setChangeLedger(data);
