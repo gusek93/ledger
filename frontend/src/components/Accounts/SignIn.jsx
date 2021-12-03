@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./SignIn.module.scss";
 import Axios from "axios";
 import { useHistory } from "react-router";
-import { useAppContext } from "../../utils/store";
+import { useAppContext, setToken } from "../../utils/store";
 
 
 const apiUrl = 'http://localhost:8000/accounts/token/'
@@ -22,12 +22,14 @@ function SignIn() {
 
         Axios.post(apiUrl, userInfo)
             .then(response => {
-                console.log(response);
+                //console.log(response);
                 const {
                     data: {token: jwtToken}
                 } = response;
+                console.log("signIn jwt token check :" + jwtToken);
+                dispatch(setToken(jwtToken));
+                
 
-                dispatch(jwtToken);
                 // setJwtToken(jwtToken);
                 //history.push('/');
             })

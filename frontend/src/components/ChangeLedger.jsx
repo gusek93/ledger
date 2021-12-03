@@ -42,9 +42,9 @@ function ChangeLedger() {
                 console.log("load response", response);
             })
             .catch(error => {
-
+                console.log(error);
             })
-    }, []);
+    }, [id]);
 
     const ledgerDetail = loading ? <Spinner /> :
             <div className={style.ledger}>

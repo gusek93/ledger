@@ -4,13 +4,10 @@ import useReducerWithSideEffects, {
     UpdateWithSideEffect, 
 } from 'use-reducer-with-side-effects';
 
-const initialState = {
-    jwtToken:"",
-}
 
-const AppContext = createContext(initialState);
+const AppContext = createContext();
 const reducer = (prevState, action) => {
-    const { type } = action;
+const { type } = action;
     if (type === SET_TOKEN) {
         const { payload: jwtToken } = action;
         const newState = {
